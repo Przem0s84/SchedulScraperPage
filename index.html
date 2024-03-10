@@ -16,10 +16,22 @@
         font-size: 1rem;
       }
 
+      #form-container {
+        margin-bottom: 20px;
+        /* Dodaj margines na dole kontenera formularza */
+        margin-top: 0px;
+      }
+
+      #title {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+      }
+
       @media (max-width: 768px) {
         .custom {
           font-size: 0.7rem;
         }
+
         .row {
           font-size: 0.5rem;
         }
@@ -32,24 +44,146 @@
   </head>
 
   <body>
-    <div class="container">
-      <br />
-      <span class="display-5">PK Schedule Scraper</span>
-      <br /><br />
+    <div class="container mt-5">
+      <span class="display-5" id="title">PK Schedule Scraper</span>
+      <hr class="my-4" />
     </div>
-    <h></h>
+
+    <div class="container mt-4 mb-4" id="form-container">
+      <div class="row">
+        <div class="col">
+          <select
+            id="select1"
+            class="form-control text-center"
+            onchange="getFromApi()"
+          >
+            <option value="11A1">11A1</option>
+            <option value="11A2">11A2</option>
+            <option value="11A3">11A3</option>
+            <option value="11B1">11B1</option>
+            <option value="11I1">11I1</option>
+            <option value="11I2">11I2</option>
+            <option value="11K1">11K1</option>
+            <option value="11K2">11K2</option>
+            <option value="11K3">11K3</option>
+            <option value="11L1">11L1</option>
+            <option value="11L2">11L2</option>
+            <option value="11M1">11M1</option>
+            <option value="11M2">11M2</option>
+            <option value="11S1">11S1</option>
+            <option value="11S2">11S2</option>
+            <option value="11T1">11T1</option>
+            <option value="11T2">11T2</option>
+            <option value="11W1">11W1</option>
+            <option value="12A1">12A1</option>
+            <option value="12A2">12A2</option>
+            <option value="12A3">12A3</option>
+            <option value="12B1">12B1</option>
+            <option value="12I1">12I1</option>
+            <option value="12I2">12I2</option>
+            <option value="12K1">12K1</option>
+            <option value="12K2">12K2</option>
+            <option value="12L1">12L1</option>
+            <option value="12L2">12L2</option>
+            <option value="12M1">12M1</option>
+            <option value="12M2">12M2</option>
+            <option value="12S1">12S1</option>
+            <option value="12S2">12S2</option>
+            <option value="12T1">12T1</option>
+            <option value="12T2">12T2</option>
+            <option value="12W1">12W1</option>
+            <option value="13A1">13A1</option>
+            <option value="13A4">13A4</option>
+            <option value="13A6">13A6</option>
+            <option value="13B1">13B1</option>
+            <option value="13I4">13I4</option>
+            <option value="13I6">13I6</option>
+            <option value="13K1">13K1</option>
+            <option value="13K2" selected>13K2</option>
+            <option value="13L3">13L3</option>
+            <option value="13L4">13L4</option>
+            <option value="13M4">13M4</option>
+            <option value="13M5">13M5</option>
+            <option value="13S1">13S1</option>
+            <option value="13S2">13S2</option>
+            <option value="13T4">13T4</option>
+            <option value="13T8">13T8</option>
+            <option value="13W1">13W1</option>
+          </select>
+        </div>
+        <div class="col">
+          <select
+            id="select2"
+            class="form-control text-center"
+            onchange="getFromApi()"
+          >
+            <option value="L01">L01</option>
+            <option value="L02">L02</option>
+            <option value="L03">L03</option>
+            <option value="L04" selected>L04</option>
+            <option value="L05">L05</option>
+            <option value="L06">L06</option>
+            <option value="L07">L07</option>
+            <option value="L08">L08</option>
+            <option value="L09">L09</option>
+          </select>
+        </div>
+        <div class="col">
+          <select
+            id="select3"
+            class="form-control text-center"
+            onchange="getFromApi()"
+          >
+            <option value="P01">P01</option>
+            <option value="P02">P02</option>
+            <option value="P03" selected>P03</option>
+            <option value="P04">P04</option>
+            <option value="P05">P05</option>
+            <option value="P06">P06</option>
+            <option value="P07">P07</option>
+            <option value="P08">P08</option>
+            <option value="P09">P09</option>
+          </select>
+        </div>
+        <div class="col">
+          <select
+            id="select4"
+            class="form-control text-center"
+            onchange="getFromApi()"
+          >
+            <option value="K01">K01</option>
+            <option value="K02">K02</option>
+            <option value="K03" selected>K03</option>
+            <option value="K04">K04</option>
+            <option value="K05">K05</option>
+            <option value="K06">K06</option>
+            <option value="K07">K07</option>
+            <option value="K08">K08</option>
+            <option value="K09">K09</option>
+          </select>
+        </div>
+        <div class="col">
+          <select
+            id="select5"
+            class="form-control text-center"
+            onchange="getFromApi()"
+          >
+            <option value="N">N</option>
+            <option value="P">P</option>
+          </select>
+        </div>
+      </div>
     </div>
 
     <div class="container">
-      
-
       <table
+        id="myTable"
         class="table table-sm table-bordered border border-2 text-center custom"
       >
         <thead>
           <tr class="custom">
             <th>Nr</th>
-            <th>Godz.</th>
+            <th>Godz</th>
             <th>Pn</th>
             <th>Wt</th>
             <th>Śr</th>
