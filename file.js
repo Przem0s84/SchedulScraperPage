@@ -31,7 +31,7 @@ function getFromApi() {
   ).value;
   var weekTypeSelect = document.getElementById('weekTypeSelect').value;
 
-  const apiUrl = `https://schedulescraperpw.azurewebsites.net/api/Schedule?LabGropName=${labGroupsSelect}&ProjGroupName=${projectGroupsSelect}&CompLabGroupName=${computerLabGroupsSelect}&WeekType=${weekTypeSelect}&TeamName=${deanGroupsSelect}`;
+  const apiUrl = `https://pkschedulescraper20240512190607.azurewebsites.net/api/Schedule?LabGropName=${labGroupsSelect}&ProjGroupName=${projectGroupsSelect}&CompLabGroupName=${computerLabGroupsSelect}&WeekType=${weekTypeSelect}&TeamName=${deanGroupsSelect}`;
 
   fetch(apiUrl)
     .then((response) => response.json())
